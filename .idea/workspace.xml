@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72c927aa-1d2e-4195-b00c-21455e633d5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_migrations/create_books_table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_migrations/create_reviews_table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_migrations/create_users_table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_migrations/migrate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_migrations/create_books_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/create_books_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_migrations/create_reviews_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/create_reviews_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_migrations/create_users_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/create_users_table.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585415864614</updated>
-      <workItem from="1585415883965" duration="7129000" />
+      <workItem from="1585415883965" duration="7348000" />
     </task>
     <servers />
   </component>

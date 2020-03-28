@@ -1,8 +1,6 @@
 import os
 
 from sqlalchemy import create_engine, MetaData, Table, Column, String, Date, Integer, Boolean, ForeignKey, Text
-#engine = create_engine(os.getenv("DATABASE_URL"), echo=True)
-#meta = MetaData()
 
 
 def create_reviews_table(meta):
