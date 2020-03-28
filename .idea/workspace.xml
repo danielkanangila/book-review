@@ -1,12 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="72c927aa-1d2e-4195-b00c-21455e633d5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database_migrations/create_books_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database_migrations/create_reviews_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database_migrations/create_users_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database_migrations/migrate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZlZuZQfCdJkNDcq8caSyfiNAQK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.create_books_table">
+    <configuration name="create_books_table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="project1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database_migrations" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database_migrations/create_books_table.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="create_reviews_table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="project1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database_migrations" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/database_migrations/create_reviews_table.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="project1" type="PythonConfigurationType" factoryName="Python">
       <module name="project1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -29,11 +110,62 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.create_books_table" />
+        <item itemvalue="Python.create_reviews_table" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72c927aa-1d2e-4195-b00c-21455e633d5a" name="Default Changelist" comment="" />
+      <created>1585415864614</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585415864614</updated>
+      <workItem from="1585415883965" duration="7129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="581" y="64" key="CommitChangelistDialog2" timestamp="1585422469118">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="581" y="64" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1585422469118" />
+    <state width="858" height="282" key="GridCell.Tab.0.bottom" timestamp="1585423000633">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="858" height="282" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585423000633" />
+    <state width="858" height="282" key="GridCell.Tab.0.center" timestamp="1585423000631">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="858" height="282" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1585423000631" />
+    <state width="858" height="282" key="GridCell.Tab.0.left" timestamp="1585423000630">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="858" height="282" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1585423000630" />
+    <state width="858" height="282" key="GridCell.Tab.0.right" timestamp="1585423000632">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="858" height="282" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1585423000632" />
     <state x="413" y="294" key="com.intellij.ide.util.TipDialog" timestamp="1585415903775">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="413" y="294" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1585415903774" />
+    <state x="635" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1585417977497">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="635" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1585417977497" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/project1$create_books_table.coverage" NAME="create_books_table Coverage Results" MODIFIED="1585422525315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database_migrations" />
+    <SUITE FILE_PATH="coverage/project1$create_reviews_table.coverage" NAME="create_reviews_table Coverage Results" MODIFIED="1585421870088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database_migrations" />
   </component>
 </project>
