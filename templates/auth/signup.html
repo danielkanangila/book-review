@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="form-container">
+        <div class="logo-container">
+            {% include "logo.html" %}
+        </div>
+        <form class="form signup" action="/signup" method="post">
+            <h2 class="form-title">Create an account</h2>
+            <div class="form-fields">
+                <div class="names">
+                    <div class="field">
+                        <label for="first_name">First name *</label>
+                        <input required type="text" name="first_name" placeholder="John" class="text-field">
+                    </div>
+                    <div class="field">
+                        <label for="last_name">Last name *</label>
+                        <input required type="text" name="last_name" placeholder="Doe" class="text-field">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email">Email *</label>
+                    <input required type="email" name="email" placeholder="example@gmail.com" class="text-field">
+                </div>
+                <div class="field">
+                    <label for="password">Password *</label>
+                    <input required type="password" name="password" placeholder="********" class="text-field">
+                </div>
+                <div class="field">
+                    <label for="password">Confirm password *</label>
+                    <input required type="password" name="confirm_password" placeholder="********" class="text-field">
+                </div>
+            </div>
+            <button id="signupBtn" class="btn btn-primary responsive">Create</button>
+            <div class="actions">
+                <a href="/login">Login instead</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

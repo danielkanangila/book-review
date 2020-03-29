@@ -2,26 +2,29 @@
   display: block;
   width: fit-content;
   height: fit-content;
-  padding: 12px 25px;
+  padding: 15px 25px;
   border-radius: 4px;
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 0.9rem;
   transition: all .3s;
   letter-spacing: 1.5px;
-  -webkit-box-shadow: 1px 0px 9px 1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 0px 9px 1px rgba(0, 0, 0, 0.75);
-  box-shadow: 1px 0px 9px 1px rgba(0, 0, 0, 0.75);
-  color: #000000;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
 
   &.small {
     padding: 8px 25px;
   }
 
+  &.responsive {
+    width: 100%;
+  }
+
   &-primary {
-    background: rgba($color-primary, 0.5);
+    background: $color-primary;
 
     &:hover {
-      background: $color-primary;
+      background: $color-hover;
     }
   }
 

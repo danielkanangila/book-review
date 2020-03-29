@@ -260,6 +260,11 @@ a {
   border: 2px solid #3D5AFE;
 }
 
+.text-field.error,
+.text-field.error:focus {
+  border: 2px solid red;
+}
+
 .actions {
   display: flex;
   justify-content: space-between;
@@ -271,13 +276,20 @@ a {
   color: #3D5AFE;
   transition: all 0.3s;
   font-weight: bold;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   text-align: center;
   border-radius: 4px;
 }
 
 .actions a:hover {
   background-color: #eff1ff;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
 .btn {
@@ -296,6 +308,7 @@ a {
   letter-spacing: 1.5px;
   font-weight: bold;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .btn.small {

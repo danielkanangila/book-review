@@ -6,13 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Books Reviews</title>
-    {% assets "scss" %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    {% endassets %}
+    <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/10dac8eb5a.js" crossorigin="anonymous"></script>
 </head>
 <body>
     {% block body %}
     {% endblock %}
-    <scrip src="{{ url_for('static', filename='js/index.js') }}"></scrip>
+    <!--
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    -->
+    <script type="module" src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 </html>

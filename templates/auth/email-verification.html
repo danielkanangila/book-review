@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="form-container">
+        <div class="logo-container">
+            {% include "logo.html" %}
+        </div>
+        <form id="verifyEmail" class="form check-email" action="/email-verification" method="post">
+            <h2 class="form-title">
+                Enter the verification code
+                <a id="resendVerificationCode" href="javascript:void(0)">Resend verification code</a>
+            </h2>
+            <div class="code-box">
+                <input class="text-field" type="text" maxlength="1">
+                <input class="text-field" type="text" maxlength="1">
+                <input class="text-field" type="text" maxlength="1">
+                <input class="text-field" type="text" maxlength="1">
+                <input class="text-field" type="text" maxlength="1">
+            </div>
+            <button id="signin" class="btn btn-primary responsive">Verify</button>
+        </form>
+    </div>
+{% endblock %}

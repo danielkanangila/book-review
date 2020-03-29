@@ -1,13 +1,21 @@
-@import "reset";
-@import "variables";
-@import "form";
-@import "button";
+@import "assets/sass/reset";
+@import "assets/sass/variables";
+@import "assets/sass/form";
+@import "assets/sass/button";
 
 * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
+body {
+  background-color: #ffffff;
+}
+
 .logo {
   font-family: 'Anton', sans-serif;
+  span {
+    font-family: 'Anton', sans-serif;
+    color: $color-primary;
+  }
 }

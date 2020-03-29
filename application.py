@@ -1,7 +1,7 @@
 import os
-import requests
+import requests as api_fetch
 
-from flask import Flask, session, jsonify, render_template
+from flask import Flask, session, jsonify, render_template, request
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -22,7 +22,7 @@ def create_app():
     Session(app)
 
     # Set up assets
-    setup_assets(app)
+    # setup_assets(app)
 
     # Set up database
     engine = create_engine(os.getenv("DATABASE_URL"))
@@ -35,5 +35,25 @@ def create_app():
     @app.route("/")
     def index():
         return render_template('index.html')
+
+    @app.route("/login", methods=["GET", "POST"])
+    def login():
+        if request.method == "GET":
+            return render_template('auth/login.html')
+
+    @app.route("/signup", methods=["GET", "POST"])
+    def signup():
+        if request.method == "GET":
+            return render_template('auth/signup.html')
+
+    @app.route("/reset-password", methods=["GET", "POST"])
+    def rest_password():
+        if request.method == "GET":
+            return render_template('auth/reset-password.html')
+
+    @app.route("/email-verification", methods=["GET", "POST"])
+    def verify_email():
+        if request.method == "GET":
+            return render_template('auth/email-verification.html')
 
     return app
