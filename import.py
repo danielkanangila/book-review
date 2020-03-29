@@ -12,7 +12,8 @@ def main():
     f = open("books.csv")
     reader = csv.reader(f)
     for isbn, title, author, year in reader:
-        db.execute("")
+        db.execute("INSERT INTO books (isbn, title, author, year) VALUES (:isbn, :title, :author, :year)",
+                   {"isbn": isbn, "title": title, "author": author, "year": year})
         print(f"Book {title} has been added to the database.")
     db.commit()
 
