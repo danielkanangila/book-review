@@ -1,4 +1,4 @@
-const html = String.raw;
+const html = String.raw
 
 export const error = (id, message) => {
     const error_el_str = html`

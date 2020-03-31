@@ -4,5 +4,4 @@ Flask-Session
 psycopg2-binary
 SQLAlchemy
 livereload
-Flask-Assets
-pyScss
+flask_bcrypt

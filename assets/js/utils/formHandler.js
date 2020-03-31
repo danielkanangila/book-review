@@ -46,7 +46,7 @@ const formEventHandler = (selector, dataValidationConstraint, state, submitHandl
         if (errors) {
             addErrorsToDOM(errors);
         } else {
-            submitHandler(state);
+            submitHandler(state, event);
         }
     };
 

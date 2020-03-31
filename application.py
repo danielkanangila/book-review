@@ -1,4 +1,5 @@
 import os
+import sys
 import requests as api_fetch
 
 from flask import Flask, session, jsonify, render_template, request
@@ -6,6 +7,7 @@ from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from assets import setup_assets
+from auth import Auth, login_required
 
 
 def create_app():
@@ -32,7 +34,11 @@ def create_app():
     API_KEY = os.getenv("API_KEY")
     API_URL = "https://www.goodreads.com/book/review_counts.json"
 
+    # User authentication class instance
+    auth = Auth()
+
     @app.route("/")
+    @login_required
     def index():
         return render_template('index.html')
 
@@ -45,6 +51,13 @@ def create_app():
     def signup():
         if request.method == "GET":
             return render_template('auth/signup.html')
+        elif request.method == "POST":
+            new_user = request.get_json()
+            result = auth.create_user(db, new_user)
+            if result['error']:
+                return result, 500
+            else:
+                return {"status": "success"}, 200
 
     @app.route("/reset-password", methods=["GET", "POST"])
     def rest_password():

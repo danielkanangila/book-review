@@ -12,5 +12,5 @@ def create_users_table(meta):
         Column('last_name', String),
         Column('email', String),
         Column('password', String),
-        Column('is_active', Boolean, default=False)
+        Column('is_active', Boolean, default=False),
     )

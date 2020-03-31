@@ -2,36 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72c927aa-1d2e-4195-b00c-21455e633d5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/auth/dataContraints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/auth/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/auth/signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/error.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/utils/DOMErrorHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/utils/formHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/utils/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/utils/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/auth/verify_email.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/alert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database_migrations/create_verification_tokens_table.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/button.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/auth/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/utils/formHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/utils/formHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/reset.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_migrations/create_users_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/create_users_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/auth/email-verification.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/email-verification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/reset-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/reset-password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/logo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/logo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,7 +162,7 @@
       <updated>1585415864614</updated>
       <workItem from="1585415883965" duration="7850000" />
       <workItem from="1585427329894" duration="1006000" />
-      <workItem from="1585429064772" duration="42824000" />
+      <workItem from="1585429064772" duration="72712000" />
     </task>
     <servers />
   </component>
@@ -160,6 +170,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="538" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585588089830">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="538" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1585588089830" />
     <state x="760" y="261" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585458150727">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

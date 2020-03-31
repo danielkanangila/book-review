@@ -19,3 +19,18 @@ body {
     color: $color-primary;
   }
 }
+
+.alert {
+  padding: 20px 15px;
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+  &.danger {
+    background-color: #EF5350;
+  }
+  &.success {
+    background-color: #43A047;
+  }
+}
