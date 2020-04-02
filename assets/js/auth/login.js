@@ -36,7 +36,7 @@ export const login = (selector) => {
             .then(response => {
                 form.querySelector('.loader-wrapper').classList.add('hide');
                 localStorage.setItem('access_token', response.data.access_token);
-                window.location.replace(redirect_url);
+                window.location.replace('/');
             })
             .catch(err => {
                 form.querySelector('.loader-wrapper').classList.add('hide');

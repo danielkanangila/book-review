@@ -1,0 +1,46 @@
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #212121;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 1000;
+  -webkit-box-shadow: 10px 0px 5px -1px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 10px 0px 5px -1px rgba(0, 0, 0, 0.26);
+  box-shadow: 10px 0px 5px -1px rgba(0, 0, 0, 0.26);
+
+  a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: ease-in 0.3s;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #212121;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    font-size: 36px;
+    cursor: pointer;
+  }
+
+  .clearfix {
+    margin-bottom: 30px;
+  }
+}

@@ -11,11 +11,13 @@
     <script src="https://kit.fontawesome.com/10dac8eb5a.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    {% include "navbar.html" %}
+
     {% block body %}
     {% endblock %}
-    <!--
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    -->
+
+    {% include "footer.html" %}
+
     <script type="module" src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 </html>

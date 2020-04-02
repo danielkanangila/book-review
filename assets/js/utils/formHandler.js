@@ -50,8 +50,9 @@ const formEventHandler = (selector, dataValidationConstraint, state, submitHandl
         }
     };
 
-    // Bind "keyup " event on all inputs in the selected form
+    // Bind "keyup  and change" event on all inputs in the selected form
     inputs.forEach(input => input.addEventListener('keyup', handleChange));
+    inputs.forEach(input => input.addEventListener('change', handleChange));
 
     // bind click event handler to form submit
     submitBtn.addEventListener('click', handleSubmit);
