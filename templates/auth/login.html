@@ -5,16 +5,19 @@
         <div class="logo-container">
             {% include "logo.html" %}
         </div>
-        <form class="form" action="/login" method="post">
+        <form class="form login" action="/login" method="post">
+            <div class="loader-wrapper hide">
+                <div class="loader"></div>
+            </div>
             <h2 class="form-title">Login</h2>
             <div class="form-fields">
                 <div class="field">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="example@gmail.com" class="text-field">
+                    <label for="email">Email *</label>
+                    <input required type="email" name="email" placeholder="example@gmail.com" class="text-field">
                 </div>
                 <div class="field">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="********" class="text-field">
+                    <label for="password">Password *</label>
+                    <input required type="password" name="password" placeholder="********" class="text-field">
                 </div>
             </div>
             <button id="signin" class="btn btn-primary responsive">Login</button>

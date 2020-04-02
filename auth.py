@@ -1,27 +1,61 @@
-from flask import g, request, redirect, url_for
+from flask import g, request, redirect, url_for, session
 from functools import wraps
 from flask_bcrypt import generate_password_hash, check_password_hash
 from random import randint
 from datetime import datetime
 from sqlalchemy.exc import IntegrityError
+from flask_jwt_extended import (
+    create_access_token,
+    verify_jwt_in_request,
+    get_jwt_identity
+)
 
 
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if hasattr(g, 'user') is False:
-            print('attribute found.')
+        access_token = session.get('access_token', None)
+        if not access_token:
             return redirect(url_for('login', next=request.url))
         return f(*args, **kwargs)
     return decorated_function
 
 
+def is_login(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        access_token = session.get('access_token', None)
+        if access_token:
+            return redirect(url_for('index'))
+        return f(*args, **kwargs)
+
+    return decorated_function
+
+
 class Auth:
+
     def hash_password(self, password):
         return generate_password_hash(password).decode('utf8')
 
     def check_password(self, user_password, input_password):
         return check_password_hash(user_password, input_password)
+
+    def authenticate(self, db, email, password):
+        user = db.execute("SELECT * FROM users WHERE email = :email", {"email": email}).fetchone()
+        if not user:
+            return {'error': f'User {email} does not exist.'}
+        if check_password_hash(user.password, password):
+            access_token = create_access_token(identity=user['email'])
+            session['access_token'] = access_token
+            session['user_id'] = user['id']
+            return {
+                'error': False,
+                'access_token': access_token
+            }
+        else:
+            return {
+                'error': 'Bad credentials.'
+            }
 
     def create_user(self, db, user):
 
@@ -42,10 +76,15 @@ class Auth:
             if token['error']:
                 raise Exception(token['error'])
             else:
-                # store user in session
-                g['user'] = token
-                return {"error": None, "status": "success"}
-
+                access_token = create_access_token(identity=user['email'])
+                session['access_token'] = access_token
+                session['user_id'] = user_id
+                # return token
+                return {
+                    "error": None,
+                    "status": "success",
+                    'access_token': access_token
+                }
 
         except IntegrityError:
             db.rollback()
@@ -75,3 +114,4 @@ class Auth:
         range_start = 10**(n-1)
         range_end = (10**n)-1
         return randint(range_start, range_end)
+

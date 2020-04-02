@@ -1,6 +1,6 @@
 import axios from 'axios';
 import formHandler from '../utils/formHandler';
-import { alert } from './../components';
+import { handleError } from '../utils';
 
 import { signupConstraint } from'./dataContraints'
 
@@ -13,26 +13,21 @@ export const signup = (selector) => {
         confirm_password: ''
     };
 
-    const handleError = (wrapperSelector, message, remove = false) => {
-        const wrapper = document.querySelector(selector);
-        const alertEl = alert('danger', message);
-        if (wrapper.querySelector('.alert') && remove === true) {
-            wrapper.querySelector('.alert').remove();
-            return;
-        }
-        if (message) wrapper.querySelector('h2.form-title').after(alertEl);
-    };
-
     const handleSubmit = (state) => {
+
+        document.querySelector('.loader-wrapper').classList.remove('hide');
         handleError(selector, '', true);
         if (state) {
             const {confirm_password, ...data} = state;
 
             axios.post('/signup', data)
                 .then(response => {
-                    console.log(response);
+                    document.querySelector('.loader-wrapper').classList.add('hide');
+                    localStorage.setItem('access_token', response.data.access_token);
+                    window.location.replace('/');
                 })
                 .catch(error => {
+                    document.querySelector('.loader-wrapper').classList.add('hide');
                     handleError(selector, error.response.data.error);
                 });
         }

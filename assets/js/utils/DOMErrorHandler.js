@@ -1,4 +1,4 @@
-import {error} from '../components';
+import {alert, error} from '../components';
 import {validator} from "./validate";
 
 /**
@@ -95,4 +95,21 @@ export const handleSingleError = (constraints, field, value) => {
 export const removeError = (inputEl, errorSpan) => {
     inputEl.classList.remove('error');
     errorSpan.remove();
+};
+
+
+/**
+ * Added alert message to the DOM
+ * @param wrapperSelector
+ * @param message
+ * @param remove
+ */
+export const handleError = (wrapperSelector, message, remove = false) => {
+        const wrapper = document.querySelector(wrapperSelector);
+        const alertEl = alert('danger', message);
+        if (wrapper.querySelector('.alert') && remove === true) {
+            wrapper.querySelector('.alert').remove();
+            return;
+        }
+        if (message) wrapper.querySelector('h2.form-title').after(alertEl);
 };
