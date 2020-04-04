@@ -1,38 +1,23 @@
+import Router from './router';
 import {
     signup,
     verify_email,
     login
 } from './auth';
 import navbar from './navbar';
+import books from './books';
 
-document.addEventListener("DOMContentLoaded", function () {
-    const location = window.location.pathname;
+const app = () => {
+    const $this = Router;
 
-    // Handle navbar components:
-    // open and close sidenav, handle logout
-    navbar();
+    ($this.request.pathname === '/signup' || $this.request.pathname === '/login') ? document.body.classList.add('auth-process') : document.body.classList.remove('auth-process');
+    navbar($this.request.pathname);
+    $this.route({path: '/', component: books, element: '.container.book-list'});
+    $this.route({path: '/login', component: login, element: 'form.login'});
+    $this.route({path: '/signup', component: signup, element: 'form.signup'});
+    $this.route({path: '/email-verification', component: verify_email, element: 'form.check-email'});
 
-    // Added class 'auth-process' to current page and hide navbar and footer
-    if (location === '/signup' || location === '/login') document.body.classList.add('auth-process');
-    else document.body.classList.remove('auth-process');
+    return $this;
+};
 
-    // Forms handler
-    if (document.querySelector('form')) {
-
-        const formClasses = [...document.querySelector('form').classList];
-        const fromSelector = formClasses.join('.');
-        switch (fromSelector) {
-            case 'form.signup':
-                signup('form.signup');
-                break;
-            case 'form.check-email':
-                verify_email('form.check-email');
-                break;
-            case 'form.login':
-                login(fromSelector);
-                break;
-            default:
-                return ''
-        }
-    }
-});
+export default app();

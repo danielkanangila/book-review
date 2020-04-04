@@ -8,14 +8,14 @@ import {signupConstraint} from "../auth/dataContraints";
 
 /**
  *
- * @param selector from selector
+ * @param element from selector
  * @param dataValidationConstraint constraint to validate inputs
  * @param state object representing the form data
  * @param submitHandler callback function to handle form submit
  * @param changeHandler callback function to handle input change event
  */
-const formEventHandler = (selector, dataValidationConstraint, state, submitHandler, changeHandler,) => {
-    const form = document.querySelector(selector);
+const formEventHandler = (element, dataValidationConstraint, state, submitHandler, changeHandler,) => {
+    const form = element;
     const inputs = form.querySelectorAll('input');
     const submitBtn = form.querySelector("button");
 

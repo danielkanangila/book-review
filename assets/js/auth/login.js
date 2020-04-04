@@ -2,12 +2,12 @@ import axios from 'axios';
 import {alert} from '../components';
 import {handleError} from "../utils";
 
-export const login = (selector) => {
+export const login = ({$this, location}) => {
     let credentials = {
         email: "",
         password: ""
     };
-    const form = document.querySelector(selector);
+    const form = $this;
     const inputs = form.querySelectorAll('input');
 
     const handleChange = e => {
@@ -19,16 +19,17 @@ export const login = (selector) => {
 
     const handleSubmit =  e => {
         e.preventDefault();
-        form.querySelector('.loader-wrapper').classList.remove('hide')
+        form.querySelector('.loader-wrapper').classList.remove('hide');
         // get redirect url
-        const queryString = new URLSearchParams(window.location.search);
-        const redirect_url = queryString ? queryString.get('next') : '/';
+        // const queryString = new URLSearchParams(location.search);
+        // const redirect_url = queryString ? queryString.get('next') : '/';
         //window.location.replace(redirect_url);
+
         // remove alert type error if it exist in the DOm
-        handleError(selector, "", true);
+        handleError($this, "", true);
         // check if credentials is not empty
         if (!credentials.email || !credentials.password) {
-             handleError(selector, "Email and password are required.");
+             handleError($this, "Email and password are required.");
              return false;
         }
         // API call
@@ -36,11 +37,11 @@ export const login = (selector) => {
             .then(response => {
                 form.querySelector('.loader-wrapper').classList.add('hide');
                 localStorage.setItem('access_token', response.data.access_token);
-                window.location.replace('/');
+                location.replace('/');
             })
             .catch(err => {
                 form.querySelector('.loader-wrapper').classList.add('hide');
-                handleError(selector, err.response.data.error || err);
+                handleError($this, err.response.data.error || err);
             })
     };
 

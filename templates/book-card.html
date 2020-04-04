@@ -1,0 +1,12 @@
+<div id="{{ book.id }}" class="book-card">
+    <a class="book-card__link" id="book{{ book.id }}" href="{{ url_for("show_book", book_id=book.id) }}"></a>
+    <div class="book-card__cover-illustrator">
+        <i class="far fa-image"></i>
+    </div>
+    <h2 class="book-card__title">{{ book.title }}</h2>
+    <p class="book-card__author-name">By {{ book.author }}</p>
+    <p class="book-card__details">
+        <span class="year">Year: {{ book.year }}</span>
+        <span class="isbn">ISBN: {{ book.isbn }}</span>
+    </p>
+</div>

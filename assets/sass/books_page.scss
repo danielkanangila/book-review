@@ -1,0 +1,65 @@
+.book-list {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.lib-title {
+  margin-bottom: 20px;
+}
+
+.lib-description {
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 15px;
+}
+
+.book-card {
+  position: relative;
+  padding: 160px 15px 15px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.25);
+  cursor: pointer;
+
+  &__cover-illustrator {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #9E9E9E;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    i {
+      color: #cccccc;
+      font-size: 2rem;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  p {
+    line-height: 1.5;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: #757575;
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;left: 0; bottom: 0; right: 0;
+    background: transparent;
+    z-index: 100;
+    cursor: pointer;
+  }
+}

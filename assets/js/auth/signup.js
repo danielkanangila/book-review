@@ -4,7 +4,7 @@ import { handleError } from '../utils';
 
 import { signupConstraint } from'./dataContraints'
 
-export const signup = (selector) => {
+export const signup = ({$this, location}) => {
     let state = {
         first_name: '',
         last_name: '',
@@ -16,7 +16,7 @@ export const signup = (selector) => {
     const handleSubmit = (state) => {
 
         document.querySelector('.loader-wrapper').classList.remove('hide');
-        handleError(selector, '', true);
+        handleError($this, '', true);
         if (state) {
             const {confirm_password, ...data} = state;
 
@@ -24,14 +24,14 @@ export const signup = (selector) => {
                 .then(response => {
                     document.querySelector('.loader-wrapper').classList.add('hide');
                     localStorage.setItem('access_token', response.data.access_token);
-                    window.location.replace('/');
+                    location.replace('/');
                 })
                 .catch(error => {
                     document.querySelector('.loader-wrapper').classList.add('hide');
-                    handleError(selector, error.response.data.error);
+                    handleError($this, error.response.data.error);
                 });
         }
     };
 
-    formHandler(selector, signupConstraint, state, handleSubmit);
+    formHandler($this, signupConstraint, state, handleSubmit);
 };

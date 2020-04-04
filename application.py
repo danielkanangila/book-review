@@ -22,6 +22,7 @@ def create_app():
     app.config["JWT_SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["JWT_BLACKLIST_ENABLED"] = True
     app.config["JWT_BLACKLIST_TOKEN_CHECKS"] = ['access']
+    app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
     jwt = JWTManager(app)
 
     # Check for environment variable
@@ -60,7 +61,40 @@ def create_app():
     @app.route("/")
     @login_required
     def index():
-        return render_template('index.html')
+        row_count = db.execute("SELECT COUNT(*) FROM books").first()[0]
+        limit = 50
+        current_page_n = 1 if not request.args.get('page') else request.args.get('page')
+        offset = (current_page_n-1) * limit
+        result = db.execute(f"SELECT * FROM books ORDER BY id LIMIT {limit} OFFSET {offset}").fetchall()
+
+        return render_template('index.html', data={
+            "result": result,
+            "row_count": row_count,
+            "offset": offset
+        })
+
+    @app.route("/book/<int:book_id>")
+    def show_book(book_id):
+        return book_id
+
+    @app.route("/books")
+    def books_as_json():
+        row_count = db.execute("SELECT COUNT(*) FROM books").first()[0]
+        limit = 50
+        total_page = int(row_count / limit)
+        current_page_n = 1 if not request.args.get('page') else int(request.args.get('page'))
+        next_page_n = current_page_n + 1
+        previous_page_n = current_page_n - 1
+        offset = (current_page_n - 1) * limit
+        result = db.execute(f"SELECT * FROM books ORDER BY id LIMIT {limit} OFFSET {offset}").fetchall()
+
+        return jsonify({
+            "result": [dict(row) for row in result],
+            "previous_page": f"?page={previous_page_n}" if previous_page_n > -1 else "",
+            "next_page": f"?page={next_page_n}" if current_page_n <= total_page else "",
+            "row_count": row_count,
+            "offset": offset
+        })
 
     @app.route("/logout", methods=['GET'])
     @login_required
@@ -92,7 +126,7 @@ def create_app():
 
     # to be update for full working, does not involve in current registration process
     @app.route("/reset-password", methods=["GET", "POST"])
-    def rest_password():
+    def reset_password():
         if request.method == "GET":
             return render_template('auth/reset-password.html')
 

@@ -1,9 +1,9 @@
 import axios from '../utils/formHandler';
 import formHandler from '../utils/formHandler';
 
-export const verify_email = (selector) => {
+export const verify_email = (props) => {
     let token = '';
-    const formEl = document.querySelector(selector);
+    const formEl = props.element;
     const inputs = formEl.querySelectorAll('input');
     const submitBtn = formEl.querySelector("button");
 

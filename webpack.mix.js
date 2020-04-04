@@ -7,7 +7,8 @@ mix.sass('assets/sass/main.scss', 'static/css')
         ]
     })
     .sourceMaps();
-mix.js('assets/js/app.js', 'static/js/index.js')
+mix.js('assets/js/index.js', 'static/js/index.js')
     .sourceMaps();
+mix.version();
 
 mix.disableNotifications();

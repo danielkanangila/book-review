@@ -1,8 +1,11 @@
-const navbar = () => {
+const navbar = (pathname) => {
+    if (pathname === '/signup' || pathname === '/login') {
+        return false;
+    }
     const navbarEl = document.querySelector('.navbar');
     const openMenuBtn = navbarEl.querySelector('#menu');
     const closeBtn = navbarEl.querySelector('#closeBtn');
-    const logoutBtn = navbarEl.querySelector('#logoutBtn');
+    const logoutBtn = navbarEl.querySelector('#logout');
 
     const logout = e => {
         e.preventDefault();

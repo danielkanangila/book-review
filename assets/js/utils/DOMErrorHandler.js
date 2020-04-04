@@ -100,12 +100,12 @@ export const removeError = (inputEl, errorSpan) => {
 
 /**
  * Added alert message to the DOM
- * @param wrapperSelector
+ * @param wrapper
  * @param message
  * @param remove
  */
-export const handleError = (wrapperSelector, message, remove = false) => {
-        const wrapper = document.querySelector(wrapperSelector);
+export const handleError = (wrapper, message, remove = false) => {
+
         const alertEl = alert('danger', message);
         if (wrapper.querySelector('.alert') && remove === true) {
             wrapper.querySelector('.alert').remove();
