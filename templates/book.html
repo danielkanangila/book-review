@@ -1,4 +1,25 @@
 {% extends 'layout.html' %}
 {% block body %}
-
+    <div class="container section book-section">
+        <div class="book">
+            {% include 'book-card.html' %}
+        </div>
+        <form id="review" class="add-review">
+            <div class="field">
+                <label for="comment">Comment:</label>
+                <textarea name="comment" placeholder="Your comment" class="text-field"></textarea>
+            </div>
+            <div class="rating">
+                <label>Rating</label>
+                {% include "rating-scale.html" %}
+            </div>
+            <button class="btn btn-primary btn-fit-content">
+                Submit
+            </button>
+        </form>
+        <div class="reviews">
+            <h3>Goodreads Review Data</h3>
+            {% include "rating-card.html" %}
+        </div>
+    </div>
 {% endblock %}

@@ -4,6 +4,7 @@ import { card } from './components';
 
 const books = ({$this , $window, $}) => {
     let fetching = 0;
+    $this = $($this);
 
     /**
      * Fetching data and append new card in the DOM

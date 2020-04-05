@@ -2,39 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72c927aa-1d2e-4195-b00c-21455e633d5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/books.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/card-component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/components/loader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/render.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/state.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/sass/books_page.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/book-card.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/book.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/utils/book.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rating-card.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/rating-scale.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/auth/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/auth/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/auth/verify_email.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/auth/verify_email.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/alert.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/alert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/error.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/utils/DOMErrorHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/utils/DOMErrorHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/utils/formHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/utils/formHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/books.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/books_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/books_page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/reset.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_session/0d7057e7473748d19b7efde583bcdf12" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/0d7057e7473748d19b7efde583bcdf12" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask_session/436bdfd4d2840614adde34c293b6b38a" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/436bdfd4d2840614adde34c293b6b38a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/logo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/logo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +162,7 @@
       <updated>1585415864614</updated>
       <workItem from="1585415883965" duration="7850000" />
       <workItem from="1585427329894" duration="1006000" />
-      <workItem from="1585429064772" duration="142716000" />
+      <workItem from="1585429064772" duration="172186000" />
     </task>
     <servers />
   </component>
@@ -235,10 +222,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="413" y="294" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1585427332940" />
-    <state x="635" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1585449289581">
+    <state x="635" y="223" width="670" height="676" key="search.everywhere.popup" timestamp="1585985866967">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="635" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1585449289581" />
+    <state x="635" y="223" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1585985866967" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project1$create_books_table.coverage" NAME="create_books_table Coverage Results" MODIFIED="1585927892844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database_migrations" />

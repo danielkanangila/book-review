@@ -1,6 +1,7 @@
 import settings
 import os
 import sys
+import operator
 import requests as api_fetch
 
 from flask import Flask, session, jsonify, render_template, request, redirect, url_for
@@ -9,6 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from assets import setup_assets
 from auth import Auth, login_required, is_login
+from utils import format_reviews_data
 
 from flask_jwt_extended import (
     JWTManager,
@@ -75,8 +77,20 @@ def create_app():
 
     @app.route("/book/<int:book_id>")
     def show_book(book_id):
-        return book_id
+        result = db.execute("SELECT * FROM books WHERE id = :id", {"id": book_id}).fetchone()
+        api_res = api_fetch.get(API_URL, params={
+            "key": API_KEY,
+            "isbns": result['isbn']
+        })
 
+        if not api_res:
+            formatted_data = {}
+        else:
+            formatted_data = format_reviews_data(api_res.json()['books'][0])
+
+        return render_template('book.html', book=result, good_read_data=formatted_data)
+
+    # return data for pagination
     @app.route("/books")
     def books_as_json():
         row_count = db.execute("SELECT COUNT(*) FROM books").first()[0]

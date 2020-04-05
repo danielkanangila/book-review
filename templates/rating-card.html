@@ -1,0 +1,24 @@
+<div class="rating-card">
+    <div class="header">
+        <div>
+            <h3>User Rating</h3>
+            {% include "rating-scale.html" %}
+        </div>
+        <input type="hidden" name="average_rating" value="{{ good_read_data.average_rating }}">
+        <p>{{ good_read_data.average_rating }} average based on {{ good_read_data.ratings_count }} ratings.</p>
+    </div>
+    <hr style="border:3px solid #f1f1f1">
+    <div class="row">
+        {% for data in good_read_data.reviews_numbers %}
+            <div class="side">
+                <div>{{ data.title }}</div>
+            </div>
+            <div class="middle">
+                <div class="bar-container">
+                    <span>{{ data.total }}</span>
+                    <div style="width: {{ data.percentage }}" class="progress bar-{{ loop.index }}"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

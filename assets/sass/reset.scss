@@ -47,7 +47,7 @@ table {
   border-spacing: 0;
 }
 
-button, input {
+button, input, textarea {
 	background: none;
 	border: none;
 	outline: none;
@@ -61,7 +61,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type=number], textarea {
   -moz-appearance: textfield;
 }
 

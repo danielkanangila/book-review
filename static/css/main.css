@@ -136,7 +136,8 @@ table {
 }
 
 button,
-input {
+input,
+textarea {
   background: none;
   border: none;
   outline: none;
@@ -152,7 +153,8 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 
-input[type=number] {
+input[type=number],
+textarea {
   -moz-appearance: textfield;
 }
 
@@ -383,7 +385,7 @@ a {
   overflow: hidden;
 }
 
-.navbar nav a {
+.navbar nav a.logout-btn {
   display: block;
   text-decoration: none;
   color: #212121;
@@ -391,8 +393,8 @@ a {
   transition: 0.3s;
 }
 
-.navbar nav a:hover,
-.navbar nav a.active {
+.navbar nav a.logout-btn:hover,
+.navbar nav a.logout-btn.active {
   background-color: #3D5AFE;
   color: #ffffff;
 }
@@ -532,6 +534,139 @@ a {
   cursor: pointer;
 }
 
+.book .book-card {
+  width: 100%;
+  max-width: 250px;
+}
+
+.add-review {
+  display: block;
+  margin: 50px 0;
+}
+
+.add-review textarea {
+  height: 200px;
+  max-width: 600px;
+}
+
+.add-review label {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.rating {
+  margin-bottom: 30px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.rating .scale {
+  margin-top: 15px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.rating .scale span {
+  cursor: pointer;
+}
+
+.rating .scale span:hover {
+  color: orange;
+}
+
+.checked {
+  color: orange;
+}
+
+.rating-card {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  border: 3px solid #f1f1f1;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+.rating-card .scale {
+  height: 20px;
+}
+
+.rating-card .header {
+  margin: 20px 0;
+}
+
+.rating-card .header div {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.rating-card .header div h3 {
+  margin-right: 25px;
+}
+
+.rating-card .row {
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.rating-card .side,
+.rating-card .middle {
+  margin-bottom: 15px;
+}
+
+.rating-card .side .progress,
+.rating-card .middle .progress {
+  height: 18px;
+}
+
+.rating-card .side {
+  width: 20%;
+}
+
+.rating-card .middle {
+  width: 75%;
+}
+
+.rating-card .middle .bar-container {
+  position: relative;
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: inherit;
+}
+
+.rating-card .middle .bar-container span {
+  position: absolute;
+  top: 2.5px;
+}
+
+.rating-card .progress.bar-1 {
+  background-color: #4CAF50;
+}
+
+.rating-card .progress.bar-2 {
+  background-color: #2196F3;
+}
+
+.rating-card .progress.bar-3 {
+  background-color: #00bcd4;
+}
+
+.rating-card .progress.bar-4 {
+  background-color: #ff9800;
+}
+
+.rating-card .progress.bar-5 {
+  background-color: #f44336;
+}
+
 footer {
   display: block;
   width: 100%;
@@ -587,11 +722,26 @@ body.auth-process footer {
 
 .logo {
   font-family: "Anton", sans-serif;
+  position: relative;
 }
 
 .logo span {
   font-family: "Anton", sans-serif;
   color: #3D5AFE;
+}
+
+.logo a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  z-index: 3;
+}
+
+.logo a:hover {
+  background: none;
 }
 
 .alert {
@@ -608,6 +758,13 @@ body.auth-process footer {
 
 .alert.success {
   background-color: #43A047;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .loader {
@@ -670,7 +827,8 @@ body.auth-process footer {
   }
 }
 
-.container.book-list {
+.container.book-list,
+.container.section {
   padding-top: 30px;
   padding-bottom: 50px;
 }
