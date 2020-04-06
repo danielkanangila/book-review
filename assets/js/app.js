@@ -6,7 +6,7 @@ import {
 } from './auth';
 import navbar from './navbar';
 import books from './books';
-import book from "./utils/book";
+import book from "./book";
 
 const app = () => {
     const $this = Router;
@@ -17,7 +17,7 @@ const app = () => {
     $this.route({path: '/login', component: login, element: 'form.login'});
     $this.route({path: '/signup', component: signup, element: 'form.signup'});
     $this.route({path: '/email-verification', component: verify_email, element: 'form.check-email'});
-    $this.route({path: '/book/:id', component: book, element: '.container.book-section', props: {name: 'Daniel'}});
+    $this.route({path: '/book/:id', component: book, element: '.container.book-section'});
     return $this;
 };
 

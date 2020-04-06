@@ -1,4 +1,11 @@
 <div id="mySidenav" class="sidenav">
     <span id="closeBtn" class="close-btn">&times;</span>
-    <a href="/">Home</a>
+    <a href="/">
+        <i class="fa fa-home"></i>
+        Home
+    </a>
+    <a id="sideLogout" href={{ url_for('logout') }}>
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+    </a>
 </div>

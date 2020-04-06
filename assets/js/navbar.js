@@ -6,6 +6,7 @@ const navbar = (pathname) => {
     const openMenuBtn = navbarEl.querySelector('#menu');
     const closeBtn = navbarEl.querySelector('#closeBtn');
     const logoutBtn = navbarEl.querySelector('#logout');
+    const sideLogout = navbarEl.querySelector('#sideLogout');
 
     const logout = e => {
         e.preventDefault();
@@ -24,6 +25,7 @@ const navbar = (pathname) => {
     logoutBtn.addEventListener('click', logout);
     closeBtn.addEventListener('click', closeSidenav);
     openMenuBtn.addEventListener('click', openSidenav);
+    sideLogout.addEventListener('click', logout);
 };
 
 export default navbar;

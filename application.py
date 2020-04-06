@@ -3,6 +3,7 @@ import os
 import sys
 import operator
 import requests as api_fetch
+import datetime
 
 from flask import Flask, session, jsonify, render_template, request, redirect, url_for
 from flask_session import Session
@@ -76,12 +77,17 @@ def create_app():
         })
 
     @app.route("/book/<int:book_id>")
+    @login_required
     def show_book(book_id):
-        result = db.execute("SELECT * FROM books WHERE id = :id", {"id": book_id}).fetchone()
+        result = db.execute("SELECT books.id, books.title, books.author, books.year, books.isbn, books.average_rating, "
+                            "reviews.comment, reviews.rating, reviews.created_at"
+                            " FROM books LEFT JOIN reviews ON reviews.book_id = books.id WHERE books.id = :id", {"id": book_id}).fetchone()
+
         api_res = api_fetch.get(API_URL, params={
             "key": API_KEY,
             "isbns": result['isbn']
         })
+        print(result['id'])
 
         if not api_res:
             formatted_data = {}
@@ -90,8 +96,45 @@ def create_app():
 
         return render_template('book.html', book=result, good_read_data=formatted_data)
 
+    # store review
+    @app.route("/book/<int:book_id>", methods=["POST"])
+    @login_required
+    def store_review(book_id):
+        # check user has already reviews the book
+        reviews = db.execute("SELECT * FROM reviews WHERE user_id = :user_id AND book_id = :book_id",
+                             {"user_id": session['user_id'], "book_id": book_id}).fetchone();
+
+        if reviews:
+            return {
+                "error": "You are already reviewed this book."
+            }, 500
+
+        # check that comment is not empty
+        comment = request.json.get('comment')
+        if not comment:
+            return {
+                "error": "Comment is required"
+            }, 500
+
+        data = {
+            "user_id": session['user_id'],
+            "book_id": book_id,
+            "comment": comment,
+            "rating": request.json.get('rating'),
+            "created_at": datetime.datetime.now(),
+        }
+
+        result = db.execute("INSERT INTO reviews (user_id, book_id, comment, rating, created_at)"
+                            "VALUES (:user_id, :book_id, :comment, :rating, :created_at)"
+                            "RETURNING comment, rating, created_at",
+                            data)
+        db.commit()
+
+        return jsonify({"result": [dict(row) for row in result]}), 200
+
     # return data for pagination
     @app.route("/books")
+    @login_required
     def books_as_json():
         row_count = db.execute("SELECT COUNT(*) FROM books").first()[0]
         limit = 50
@@ -148,5 +191,10 @@ def create_app():
     def verify_email():
         if request.method == "GET":
             return render_template('auth/email-verification.html')
+
+    @app.route("/update-db")
+    def update_db():
+        result = db.execute('SELECT * FROM books').fetchall()
+        return jsonify([dict(row) for row in result])
 
     return app

@@ -43,6 +43,7 @@ $progress-colors: #4CAF50, #2196F3, #00bcd4, #ff9800, #f44336;
       color: #cccccc;
       font-size: 2rem;
     }
+
   }
 
   &__title {
@@ -71,6 +72,20 @@ $progress-colors: #4CAF50, #2196F3, #00bcd4, #ff9800, #f44336;
     z-index: 100;
     cursor: pointer;
   }
+
+  &__rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    .scale {
+      height: 20px;
+      width: fit-content;
+    }
+    span#average_rating {
+      display: block;
+    }
+  }
 }
 
 .book {
@@ -93,6 +108,22 @@ $progress-colors: #4CAF50, #2196F3, #00bcd4, #ff9800, #f44336;
     font-size: 1rem;
     margin-bottom: 15px;
     font-weight: bold;
+  }
+
+  .success-message {
+    display: block;
+    background-color: #4CAF50;
+    color: #f1f1f1;
+    width: fit-content;
+    max-width: 600px;
+    height: fit-content;
+    padding: 20px;
+    margin: 20px 0;
+    transition: .3s;
+
+    &.hide {
+      display: none;
+    }
   }
 }
 
@@ -133,6 +164,7 @@ $progress-colors: #4CAF50, #2196F3, #00bcd4, #ff9800, #f44336;
 
   .header {
     margin: 20px 0;
+
     div {
       display: flex;
       margin-bottom: 10px;
@@ -146,11 +178,12 @@ $progress-colors: #4CAF50, #2196F3, #00bcd4, #ff9800, #f44336;
   .row {
     justify-content: space-between;
     align-items: center;
-     margin: 20px 0;
+    margin: 20px 0;
   }
 
   .side, .middle {
     margin-bottom: 15px;
+
     .progress {
       height: 18px;
     }
@@ -169,9 +202,10 @@ $progress-colors: #4CAF50, #2196F3, #00bcd4, #ff9800, #f44336;
       background-color: #f1f1f1;
       text-align: center;
       color: inherit;
+
       span {
         position: absolute;
-        top: 2.5px;
+        top: 2px;
       }
     }
   }
@@ -183,4 +217,32 @@ $progress-colors: #4CAF50, #2196F3, #00bcd4, #ff9800, #f44336;
       }
     }
   }
+}
+
+.comments {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 15px;
+  h2 {
+    padding: 30px 0;
+  }
+  p {
+    line-height: 1.5;
+
+    &.created-at {
+      margin: 15px 0;
+      color: #757575;
+      font-size: 0.85rem;
+    }
+  }
+  .scale {
+    height: 18px;
+    width: fit-content;
+  }
+  .comment {
+    padding: 0 0 20px;
+    border-bottom: 2px solid #f1f1f1;
+    margin-bottom: 20px;
+  }
+
 }

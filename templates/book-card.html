@@ -9,4 +9,17 @@
         <span class="year">Year: {{ book.year }}</span>
         <span class="isbn">ISBN: {{ book.isbn }}</span>
     </p>
+    <div class="book-card__rating">
+        <div class="scale">
+            {% set averageRating = book.average_rating|int %}
+            {% set doNotCheck = 5 - averageRating %}
+            {% for i in range(averageRating) %}
+                <span aria-valuetext="{{ i }}" class="fa fa-star rating checked"></span>
+            {% endfor %}
+            {% for y in range(doNotCheck) %}
+                <span aria-valuetext="{{ y }}" class="fa fa-star rating"></span>
+            {% endfor %}
+        </div>
+        <span id="average_rating">{{ book.average_rating }}</span>
+    </div>
 </div>

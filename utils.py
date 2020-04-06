@@ -1,3 +1,5 @@
+import requests
+
 
 def get_max_value(data):
     # getting max value from reviews data
