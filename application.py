@@ -79,22 +79,20 @@ def create_app():
     @app.route("/book/<int:book_id>")
     @login_required
     def show_book(book_id):
-        result = db.execute("SELECT books.id, books.title, books.author, books.year, books.isbn, books.average_rating, "
-                            "reviews.comment, reviews.rating, reviews.created_at"
-                            " FROM books LEFT JOIN reviews ON reviews.book_id = books.id WHERE books.id = :id", {"id": book_id}).fetchone()
+        book = db.execute("SELECT * FROM books WHERE id = :id", {"id": book_id}).fetchone()
+        reviews = db.execute("SELECT * FROM reviews WHERE book_id = :book_id",
+                             {"book_id": book['id']}).fetchall()
 
         api_res = api_fetch.get(API_URL, params={
             "key": API_KEY,
-            "isbns": result['isbn']
+            "isbns": book['isbn']
         })
-        print(result['id'])
-
         if not api_res:
             formatted_data = {}
         else:
             formatted_data = format_reviews_data(api_res.json()['books'][0])
 
-        return render_template('book.html', book=result, good_read_data=formatted_data)
+        return render_template('book.html', book=book, reviews=reviews, good_read_data=formatted_data)
 
     # store review
     @app.route("/book/<int:book_id>", methods=["POST"])
@@ -102,7 +100,7 @@ def create_app():
     def store_review(book_id):
         # check user has already reviews the book
         reviews = db.execute("SELECT * FROM reviews WHERE user_id = :user_id AND book_id = :book_id",
-                             {"user_id": session['user_id'], "book_id": book_id}).fetchone();
+                             {"user_id": session['user_id'], "book_id": book_id}).fetchone()
 
         if reviews:
             return {
@@ -196,5 +194,24 @@ def create_app():
     def update_db():
         result = db.execute('SELECT * FROM books').fetchall()
         return jsonify([dict(row) for row in result])
+    # API Access
+    @app.route('/api/<string:isbn>')
+    def get_reviews(isbn):
+        book = db.execute("SELECT * FROM books WHERE isbn = :isbn", {"isbn": isbn}).fetchone()
+
+        review_count = db.execute("SELECT COUNT(*) FROM reviews WHERE book_id = :book_id",
+                                  {"book_id": book['id']}).first()[0]
+        average_score = db.execute("SELECT AVG(rating) FROM reviews WHERE book_id = :book_id",
+                                   {"book_id": book['id']}).first()[0]
+        data = {
+            "title": book['title'],
+            "author": book['author'],
+            "year": book['year'],
+            "isbn": book['isbn'],
+            "review_count": review_count if review_count else 0,
+            "average_score": f"{average_score:.1f}" if average_score else 0,
+        }
+
+        return jsonify(data), 200
 
     return app

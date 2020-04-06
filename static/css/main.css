@@ -492,6 +492,10 @@ a {
   cursor: pointer;
 }
 
+.book-card.cursor-normal {
+  cursor: default;
+}
+
 .book-card__cover-illustrator {
   position: absolute;
   top: 0;
@@ -536,6 +540,10 @@ a {
   background: transparent;
   z-index: 100;
   cursor: pointer;
+}
+
+.book-card__link.hide {
+  display: none;
 }
 
 .book-card__rating {

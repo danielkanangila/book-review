@@ -11,9 +11,10 @@ const book = ({$this, params}) => {
     const textarea = form.querySelector('textarea[name=comment]');
     const ratingScale = form.querySelectorAll('span.rating');
 
-    // prevent click on card
-    const cardLink = $this.querySelector('.book-card__link');
-    cardLink.addEventListener('click', e => e.preventDefault());
+    // hide card link
+    $this.querySelector('.book-card__link').classList.add('hide');
+    // change cursor
+    $this.querySelector('.book-card').classList.add('cursor-normal');
 
     const handleChange = e => {
         state = {
