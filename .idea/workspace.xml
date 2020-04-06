@@ -4,13 +4,8 @@
     <list default="true" id="72c927aa-1d2e-4195-b00c-21455e633d5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/book.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/book.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/books_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/books_page.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask_session/0d7057e7473748d19b7efde583bcdf12" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/0d7057e7473748d19b7efde583bcdf12" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +147,7 @@
       <updated>1585415864614</updated>
       <workItem from="1585415883965" duration="7850000" />
       <workItem from="1585427329894" duration="1006000" />
-      <workItem from="1585429064772" duration="201893000" />
+      <workItem from="1585429064772" duration="202318000" />
     </task>
     <servers />
   </component>

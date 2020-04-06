@@ -80,7 +80,7 @@ def create_app():
     @login_required
     def show_book(book_id):
         book = db.execute("SELECT * FROM books WHERE id = :id", {"id": book_id}).fetchone()
-        reviews = db.execute("SELECT * FROM reviews WHERE book_id = :book_id",
+        reviews = db.execute("SELECT * FROM reviews WHERE book_id = :book_id ORDER BY id DESC ",
                              {"book_id": book['id']}).fetchall()
 
         api_res = api_fetch.get(API_URL, params={
