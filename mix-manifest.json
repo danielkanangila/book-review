@@ -1,4 +1,5 @@
 {
     "/static/js/index.js": "/static/js/index.js",
-    "/static/css/main.css": "/static/css/main.css"
+    "/static/css/main.css": "/static/css/main.css",
+    "/static/js/index.js.map": "/static/js/index.js.map"
 }

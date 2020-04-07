@@ -1,13 +1,22 @@
 {% extends "layout.html" %}
 {% block body %}
-    <div class="container book-list">
-        <input type="hidden" name="next_page" value="?page=2">
-        <h1 class="lib-title">Library</h1>
-        <p class="lib-description">We have {{ data.row_count }} books stored in our database, scroll down to load more and click on one book to view or add reviews.</p>
-        <div class="grid">
-            {%  for book in data.result %}
-                {% include "book-card.html" %}
-            {% endfor %}
+    <div class="container home">
+        <div class="search-zone">
+            <p class="hint">Search by book title, author name or ISBN.</p>
+            <div class="search-bar">
+                <input name="search" type="text" class="search" />
+                <button class="search-btn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <div id="result">
+            <h1>Result</h1>
+            <h2 class="not-found hide">No result</h2>
+            <p class="result-count"></p>
+            <div class="result-items">
+
+            </div>
         </div>
     </div>
 {% endblock %}

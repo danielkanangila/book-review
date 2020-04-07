@@ -118,8 +118,140 @@ body.auth-process {
   @media (min-width: 750px) {
     padding: 0 3.5rem;
   }
-  &.book-list, &.section {
+  @media (min-width: 1024px) {
+    padding: 0 10rem;
+  }
+  &.section, &.book-list {
     padding-top: 30px;
     padding-bottom: 50px;
   }
+}
+
+.search-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-content: center;
+  width: 100%;
+  padding: 80px 0;
+  .search-bar {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    border-radius: 25px;
+  }
+  p {
+    margin: 0 0 5px 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  input.search {
+    padding: 15px 35px 15px 15px;
+    border: 1px solid #cccccc;
+    width: 100%;
+    border-radius: 25px;
+    transition: .3s;
+    font-size: 1rem;
+    &:hover, &:focus {
+      border-color: transparent;
+      box-shadow: 1px 1px 10px rgba(0,0,0,0.25);
+    }
+  }
+  .search-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.2rem;
+    transition: .3s;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
+    &:hover {
+      color: $color-primary;
+      cursor: pointer;
+    }
+  }
+}
+
+#result {
+  position: relative;
+  padding-bottom: 250px;
+  h1 {
+    margin-bottom: 30px;
+  }
+  .not-found {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #9E9E9E;
+  }
+  .result-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+  }
+  .result-item {
+    p {
+      line-height: 1.5;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 7px;
+      color: $color-primary;
+      transition: .3s;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &__book-details {
+      margin: 5px 0;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.85rem;
+      color: #9E9E9E;
+    }
+    &__book-rating {
+      display: flex;
+      align-items: center;
+      .scale {
+        height: 18px;
+        margin-right: 25px;
+      }
+    }
+  }
+}
+
+.suggestion-list {
+  background-color: #ffffff;
+  z-index: 9;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.25);
+  width: 100%;
+  position: absolute;
+  top: 55px;
+  max-height: 300px;
+  overflow-y: scroll;
+
+  .item {
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: .3s;
+    a {display: block;
+      width: 100%;
+      padding: 15px;
+    }
+    &:hover {
+      background-color: #f1f1f1;
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.result-count {
+  margin-bottom: 30px;
 }

@@ -1,19 +1,9 @@
 import render from '../render';
+import ratingScale from "./rating-scale";
 
 const html = String.raw;
 
 export const card = ({id, title, author, year, isbn, average_rating}) => {
-    const averageRating = parseInt(average_rating);
-    const notCheckedValue = 5 - averageRating;
-
-    const checkedRating = [...Array(averageRating).keys()].map(i => {
-        return `<span aria-valuetext="${i+1}" class="fa fa-star rating checked"></span>`
-    });
-    const notCheckedRating = [...Array(notCheckedValue).keys()].map(i => {
-        return `<span aria-valuetext="${i+1}" class="fa fa-star rating"></span>`
-    });
-
-
     return render(html`
         <div id="${id}" class="book-card">
             <a class="book-card__link" id="${id}" href="/book/${id}"></a>
@@ -27,10 +17,7 @@ export const card = ({id, title, author, year, isbn, average_rating}) => {
                 <span class="isbn">ISBN: ${isbn}</span>
             </p>
             <div class="book-card__rating">
-                <div class="scale">
-                    ${checkedRating.join('')}
-                    ${notCheckedRating.join('')}
-                </div>
+                ${ratingScale(average_rating)}
                 <span>${average_rating}</span>
             </div>
         </div>

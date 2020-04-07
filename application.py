@@ -11,16 +11,17 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from assets import setup_assets
 from auth import Auth, login_required, is_login
-from utils import format_reviews_data
+from utils import format_reviews_data, validate_reviews
 
 from flask_jwt_extended import (
     JWTManager,
     get_raw_jwt
 )
 
+from models.books import Books
+from models.reviews import Reviews
 
 def create_app():
-
     app = Flask(__name__)
     app.config["JWT_SECRET_KEY"] = os.getenv("SECRET_KEY")
     app.config["JWT_BLACKLIST_ENABLED"] = True
@@ -60,96 +61,73 @@ def create_app():
     # User authentication class instance
     auth = Auth()
 
+    # models
+    books = Books(db)
+    reviews = Reviews(db)
+
     # Home route (book list)
     @app.route("/")
     @login_required
     def index():
-        row_count = db.execute("SELECT COUNT(*) FROM books").first()[0]
-        limit = 50
-        current_page_n = 1 if not request.args.get('page') else request.args.get('page')
-        offset = (current_page_n-1) * limit
-        result = db.execute(f"SELECT * FROM books ORDER BY id LIMIT {limit} OFFSET {offset}").fetchall()
+        return render_template('index.html')
 
-        return render_template('index.html', data={
-            "result": result,
-            "row_count": row_count,
-            "offset": offset
+    # Book list page
+    @app.route("/library")
+    @login_required
+    def library():
+        return render_template('library.html', data={
+            "result": books.fetchall(query="ORDER BY id LIMIT 50"),
+            "row_count": books.count()
         })
+
+    # search endpoint
+    @app.route("/book/search")
+    @login_required
+    def search():
+        return jsonify({
+            "result": books.search(request.args.get('q'))
+        }), 200
 
     @app.route("/book/<int:book_id>")
     @login_required
     def show_book(book_id):
-        book = db.execute("SELECT * FROM books WHERE id = :id", {"id": book_id}).fetchone()
-        reviews = db.execute("SELECT * FROM reviews WHERE book_id = :book_id ORDER BY id DESC ",
-                             {"book_id": book['id']}).fetchall()
+        book = books.fetchone(query="where books.id = :id", value={"id": book_id})
+        api_res = api_fetch.get(API_URL, params={"key": API_KEY, "isbns": book['isbn']})
+        formatted_data = format_reviews_data(api_res) if api_res else {}
 
-        api_res = api_fetch.get(API_URL, params={
-            "key": API_KEY,
-            "isbns": book['isbn']
-        })
-        if not api_res:
-            formatted_data = {}
-        else:
-            formatted_data = format_reviews_data(api_res.json()['books'][0])
-
-        return render_template('book.html', book=book, reviews=reviews, good_read_data=formatted_data)
+        return render_template(
+            'book.html',
+            book=book,
+            reviews=reviews.fetchall(query="where book_id = :book_id  ORDER BY id DESC", value={"book_id": book['id']}),
+            good_read_data=formatted_data
+        )
 
     # store review
     @app.route("/book/<int:book_id>", methods=["POST"])
     @login_required
     def store_review(book_id):
-        # check user has already reviews the book
-        reviews = db.execute("SELECT * FROM reviews WHERE user_id = :user_id AND book_id = :book_id",
-                             {"user_id": session['user_id'], "book_id": book_id}).fetchone()
-
-        if reviews:
-            return {
-                "error": "You are already reviewed this book."
-            }, 500
-
-        # check that comment is not empty
-        comment = request.json.get('comment')
-        if not comment:
-            return {
-                "error": "Comment is required"
-            }, 500
-
-        data = {
-            "user_id": session['user_id'],
-            "book_id": book_id,
-            "comment": comment,
-            "rating": request.json.get('rating'),
-            "created_at": datetime.datetime.now(),
-        }
-
-        result = db.execute("INSERT INTO reviews (user_id, book_id, comment, rating, created_at)"
-                            "VALUES (:user_id, :book_id, :comment, :rating, :created_at)"
-                            "RETURNING comment, rating, created_at",
-                            data)
-        db.commit()
-
-        return jsonify({"result": [dict(row) for row in result]}), 200
+        validated = validate_reviews(reviews, book_id, request, session)
+        if validated is True:
+            review = reviews.insert({
+                "user_id": session['user_id'],
+                "book_id": book_id,
+                "comment": request.json.get('comment'),
+                "rating": request.json.get('rating')
+            })
+            return jsonify({"result": review}), 200
+        else:
+            return validated, 500
 
     # return data for pagination
     @app.route("/books")
     @login_required
     def books_as_json():
-        row_count = db.execute("SELECT COUNT(*) FROM books").first()[0]
-        limit = 50
-        total_page = int(row_count / limit)
-        current_page_n = 1 if not request.args.get('page') else int(request.args.get('page'))
-        next_page_n = current_page_n + 1
-        previous_page_n = current_page_n - 1
-        offset = (current_page_n - 1) * limit
-        result = db.execute(f"SELECT * FROM books ORDER BY id LIMIT {limit} OFFSET {offset}").fetchall()
+        return books.paginate(request), 200
 
-        return jsonify({
-            "result": [dict(row) for row in result],
-            "previous_page": f"?page={previous_page_n}" if previous_page_n > -1 else "",
-            "next_page": f"?page={next_page_n}" if current_page_n <= total_page else "",
-            "row_count": row_count,
-            "offset": offset
-        })
+    # API Access
+    @app.route('/api/<string:isbn>')
+    def get_reviews(isbn):
+        return jsonify(books.join_reviews(isbn)), 200
 
     @app.route("/logout", methods=['GET'])
     @login_required
@@ -194,24 +172,5 @@ def create_app():
     def update_db():
         result = db.execute('SELECT * FROM books').fetchall()
         return jsonify([dict(row) for row in result])
-    # API Access
-    @app.route('/api/<string:isbn>')
-    def get_reviews(isbn):
-        book = db.execute("SELECT * FROM books WHERE isbn = :isbn", {"isbn": isbn}).fetchone()
-
-        review_count = db.execute("SELECT COUNT(*) FROM reviews WHERE book_id = :book_id",
-                                  {"book_id": book['id']}).first()[0]
-        average_score = db.execute("SELECT AVG(rating) FROM reviews WHERE book_id = :book_id",
-                                   {"book_id": book['id']}).first()[0]
-        data = {
-            "title": book['title'],
-            "author": book['author'],
-            "year": book['year'],
-            "isbn": book['isbn'],
-            "review_count": review_count if review_count else 0,
-            "average_score": f"{average_score:.1f}" if average_score else 0,
-        }
-
-        return jsonify(data), 200
 
     return app
