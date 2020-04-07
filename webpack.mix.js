@@ -1,5 +1,5 @@
 const mix = require("laravel-mix");
-
+mix.setPublicPath('./');
 mix.sass('assets/sass/main.scss', 'static/css')
     .options({
         postCss: [

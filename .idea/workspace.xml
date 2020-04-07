@@ -2,43 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72c927aa-1d2e-4195-b00c-21455e633d5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_migrations/import_ratings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_migrations/seeder.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database_migrations/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/books.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/reviews.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/library.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/books.scss" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/average_ratings.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/books.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/card-component.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/card-component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/rating-scale.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/rating-scale.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/result-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/result-item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/suggestion-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/suggestion-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/create_tables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/books_page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/books_page.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_migrations/create_books_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_migrations/create_reviews_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_migrations/create_users_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_migrations/create_verification_tokens_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/create_tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_migrations/migrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_migrations/migrate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask_session/0d7057e7473748d19b7efde583bcdf12" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/0d7057e7473748d19b7efde583bcdf12" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" beforeDir="false" afterPath="$PROJECT_DIR$/flask_session/2029240f6d1128be89ddc32729463129" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/import.py" beforeDir="false" afterPath="$PROJECT_DIR$/import.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sidenav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sidenav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +151,7 @@
       <updated>1585415864614</updated>
       <workItem from="1585415883965" duration="7850000" />
       <workItem from="1585427329894" duration="1006000" />
-      <workItem from="1585429064772" duration="248323000" />
+      <workItem from="1585429064772" duration="249716000" />
     </task>
     <servers />
   </component>
