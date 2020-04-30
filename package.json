@@ -25,7 +25,7 @@
   "homepage": "https://github.com/me50/danielkanangila#readme",
   "dependencies": {
     "cross-env": "^7.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "laravel-mix": "^5.0.4",
     "validate.js": "^0.13.1"
   },
