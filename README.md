@@ -22,3 +22,9 @@ to create tables in th database and then run `python import.py` to populate the 
 to populate the `average_ratings` table.
 
 Run `ptyhon run.py` to start the server.  
+
+## Demo
+
+[http://book-review.kkanangila.com/](http://book-review.kkanangila.com/)
+
+Note: The application is hosted on heroku free dynos, It can take time to load if the server is in standby. 
